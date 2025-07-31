@@ -1,0 +1,129 @@
+/* components/Footer.module.css */
+
+.footer {
+  background: linear-gradient(to right, #011d13, #033d1e);
+  color: white;
+  padding: 4rem 2rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.topSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand h3 {
+  font-size: 1.8rem;
+  color: orange;
+}
+
+.links {
+  display: flex;
+  gap: 4rem;
+  flex: 2 1 400px;
+}
+
+.links h4 {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: orange;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: 0.5rem;
+}
+
+.links a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: orange;
+}
+
+.subscribe {
+  flex: 1 1 250px;
+}
+
+.subscribe h4 {
+  color: orange;
+  margin-bottom: 0.5rem;
+}
+
+.subscribe p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form input {
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.form button {
+  background-color: orange;
+  border: none;
+  color: #011d13;
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #ffa733;
+}
+
+.bottomSection {
+  border-top: 1px solid #444;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+.socials a {
+  margin-left: 1rem;
+  color: orange;
+  transition: transform 0.2s ease;
+}
+
+.socials a:hover {
+  transform: scale(1.1);
+}

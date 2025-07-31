@@ -1,0 +1,44 @@
+.heroWrapper {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background-image: url('/bg.png'), linear-gradient(135deg, #011d13e6, #033d1ee6);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  font-size: 1.125rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid orange;
+  color: orange;
+  background-color: transparent;
+  transition: background 0.3s ease;
+  border-radius: 8px;
+}
+
+.ctaButton:hover {
+  background-color: rgba(255, 165, 0, 0.1);
+}
