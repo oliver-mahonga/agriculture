@@ -4,6 +4,7 @@ import "./globals.css";
 //import { ThemeProvider } from "@/components/ui/theme-provider";
 // import { AuthInitializer } from "@/components/auth/AuthInitializer";
 import React from "react";
+import Navbar from "@/components/components/Navbar";
 //import { AuthInitializer } from "@/components/auth/AuthInitializer";
 
 const geistSans = localFont({
@@ -28,6 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`} >
+        <nav>
+        <Navbar />
+        </nav>
       
         
           {children}

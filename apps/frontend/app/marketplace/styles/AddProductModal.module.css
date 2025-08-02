@@ -1,0 +1,45 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 61, 41, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #00271c;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal input,
+.modal select {
+  padding: 10px;
+  border: 1px solid orange;
+  border-radius: 5px;
+  background-color: #003d29;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  background: orange;
+  color: #003d29;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}

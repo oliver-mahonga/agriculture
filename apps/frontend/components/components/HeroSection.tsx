@@ -33,7 +33,7 @@ const Hero = () => {
       </animated.p>
 
       <animated.div style={fadeInButton}>
-        <Button variant="outline" className={styles.ctaButton}>
+        <Button variant="outline" className={styles.ctaButton} >
           Get Started
         </Button>
       </animated.div>

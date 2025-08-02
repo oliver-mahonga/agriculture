@@ -14,7 +14,7 @@ import TestimonialsSection from "@/components/components/TestimonialsSection"
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      <Navbar />
+  
       <main>
         <HeroSection />
         <FeaturesSection />

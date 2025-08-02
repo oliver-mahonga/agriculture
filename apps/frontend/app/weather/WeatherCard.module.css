@@ -1,0 +1,70 @@
+.page {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  background-color: #1a3e2e;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #ffa500;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 2px solid #ffa500;
+  background-color: #ffffff;
+  color: #1a3e2e;
+  font-weight: bold;
+  outline: none;
+  margin-top: 0.5rem;
+  width: 200px;
+}
+
+.card {
+  background-color: #264d3b;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
+.card h2 {
+  color: #ffa500;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.suggestionBox {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #346e53;
+  border-left: 5px solid #ffa500;
+  border-radius: 6px;
+}
+
+.suggestionBox p {
+  margin-top: 0.5rem;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #ffa500;
+}

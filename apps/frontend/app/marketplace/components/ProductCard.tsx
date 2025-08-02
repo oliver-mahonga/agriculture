@@ -1,33 +1,21 @@
-import React from 'react';
-import styles from './Marketplace.module.css';
-import { MapPin } from 'lucide-react';
 
-type Product = {
-  id: number;
-  name: string;
-  image: string;
-  location: string;
-  price: string;
-};
+import React from 'react';
+import styles from '../styles/ProductCard.module.css';
+import { Product } from '../types';
 
 interface ProductCardProps {
   product: Product;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  return (
-    <div className={styles.card}>
-      <img src={product.image} alt={product.name} />
-      <div className={styles.cardBody}>
-        <h3 className={styles.cardTitle}>{product.name}</h3>
-        <div className={styles.cardLocation}>
-          <MapPin size={16} style={{ marginRight: 6, verticalAlign: 'middle' }} />
-          {product.location}
-        </div>
-        <div className={styles.cardPrice}>{product.price}</div>
-      </div>
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
+  <div className={styles.card}>
+    <img src={product.image} alt={product.name} className={styles.image} />
+    <div className={styles.content}>
+      <div className={styles.title}>{product.name}</div>
+      <div className={styles.price}>Ksh {product.price}</div>
+      <div className={styles.location}>{product.location}</div>
     </div>
-  );
-};
+  </div>
+);
 
 export default ProductCard;

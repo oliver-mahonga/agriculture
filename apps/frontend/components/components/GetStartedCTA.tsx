@@ -18,7 +18,7 @@ const GetStartedCTA: React.FC = () => {
         <p className={styles.ctaSubheading}>
           Join thousands of African farmers using AI-powered tools for smarter, more productive agriculture.
         </p>
-        <a href="/signup" className={styles.ctaButton}>
+        <a href="/kilimo-chama" className={styles.ctaButton}>
           Get Started
         </a>
       </animated.div>

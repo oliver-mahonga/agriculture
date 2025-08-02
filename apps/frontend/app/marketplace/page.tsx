@@ -1,90 +1,94 @@
+// pages/marketplace.tsx
 'use client';
-
-import React, { useState, useMemo } from 'react';
-//import styles from '@/components/Marketplace.module.css';
-import AddProduct from './components/AddProductModal';
+import React, { useState, useEffect } from 'react';
+//import styles from '../styles/Marketplace.module.css';
+import AddProductModal from './components/AddProductModal';
 import Filters from './components/Filters';
 import ProductCard from './components/ProductCard';
-//import Filters from '@/components/Filters';
-//import ProductCard from '@/components/ProductCard';
-//import AddProduct from '@/components/AddProduct';
+import styles from './styles/Marketplace.module.css';
+// import ProductCard from '../components/ProductCard';
+// import Filters from '../components/Filters';
+// import AddProductModal from '../components/AddProductModal';
 
-const initialProducts = [
-  {
-    id: 1,
-    name: 'Organic Maize',
-    type: 'produce',
-    place: 'Eldoret',
-    price: 1500,
-    image: '/products/maize.jpg',
-  },
-  {
-    id: 2,
-    name: 'Cow Plough',
-    type: 'tools',
-    place: 'Nairobi',
-    price: 7000,
-    image: '/products/plough.jpg',
-  },
-  {
-    id: 3,
-    name: 'Tomato Seeds',
-    type: 'seeds',
-    place: 'Kisumu',
-    price: 300,
-    image: '/products/seeds.jpg',
-  },
-  {
-    id: 4,
-    name: 'Local Chicken',
-    type: 'livestock',
-    place: 'Mombasa',
-    price: 1200,
-    image: '/products/chicken.jpg',
-  },
-  // Add as many as needed
-];
+interface Product {
+  id: string;
+  name: string;
+  type: string;
+  location: string;
+  place: string;
+  price: string;
+  image: string;
+}
 
-export default function MarketplacePage() {
-  const [products, setProducts] = useState(initialProducts);
+const types = ['Fruits', 'Vegetables', 'Livestock', 'Tools', 'Seeds'];
+const locations = ['Nairobi', 'Mombasa', 'Kisumu', 'Eldoret', 'Machakos'];
+
+const generateMockProducts = (): Product[] => {
+  const items: Product[] = [];
+  for (let i = 1; i <= 1500; i++) {
+    const type = types[i % types.length];
+    const location = locations[i % locations.length];
+    items.push({
+      id: `${i}`,
+      name: `${type} Product ${i}`,
+      type,
+      location,
+      place: `Area ${i % 100}`,
+      price: `${(100 + (i % 2000)).toLocaleString()} KES`,
+      image: `https://picsum.photos/seed/${i}/300/200`,
+    });
+  }
+  return items;
+};
+
+const MarketplacePage: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filtered, setFiltered] = useState<Product[]>([]);
   const [selectedType, setSelectedType] = useState('');
-  const [selectedPlace, setSelectedPlace] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
-  const handleAddProduct = (product: any) => {
+  useEffect(() => {
+    const data = generateMockProducts();
+    setProducts(data);
+    setFiltered(data);
+  }, []);
+
+  useEffect(() => {
+    let temp = [...products];
+    if (selectedType) temp = temp.filter((p) => p.type === selectedType);
+    if (selectedLocation) temp = temp.filter((p) => p.location === selectedLocation);
+    setFiltered(temp);
+  }, [selectedType, selectedLocation, products]);
+
+  const handleAdd = (product: Product) => {
     setProducts((prev) => [product, ...prev]);
   };
 
-  const filteredProducts = useMemo(() => {
-    return products.filter((p) => {
-      return (
-        (selectedType ? p.type === selectedType : true) &&
-        (selectedPlace ? p.place === selectedPlace : true)
-      );
-    });
-  }, [products, selectedType, selectedPlace]);
-
   return (
-    <main className={styles.container}>
+    <div className={styles.container}>
       <h1 className={styles.title}>KilimoX Marketplace</h1>
 
       <Filters
         selectedType={selectedType}
-        selectedPlace={selectedPlace}
+        selectedLocation={selectedLocation}
         onTypeChange={setSelectedType}
-        onPlaceChange={setSelectedPlace}
+        onLocationChange={setSelectedLocation}
       />
 
-      <AddProduct onAddProduct={handleAddProduct} />
+      <button className={styles.addButton} onClick={() => setShowModal(true)}>
+        + Add Product
+      </button>
+
+      {showModal && <AddProductModal onClose={() => setShowModal(false)} onAdd={handleAdd} />}
 
       <div className={styles.grid}>
-        {filteredProducts.length === 0 ? (
-          <p>No products found.</p>
-        ) : (
-          filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        )}
+        {filtered.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default MarketplacePage;

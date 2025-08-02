@@ -1,10 +1,9 @@
-// types.ts
 export interface Product {
   id: number;
   name: string;
   type: string;
-  place: string;
   location: string;
-  price: number; // should be number not string
+  place: string;
+  price: string; 
   image: string;
 }
