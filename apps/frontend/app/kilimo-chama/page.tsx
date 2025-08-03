@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import styles from "./KilimoChama.module.css";
+//import type { Member } from '../types/types';
+
 import {
   members as initialMembers,
   contributions,
@@ -81,13 +83,22 @@ export default function KilimoChamaPage() {
       contributions: parseFloat(formData.contributions),
       loanStatus: formData.loanStatus,
     };
-    setMembers((prev) => [...prev, newMember]);
+    setMembers(prev => [
+  ...prev,
+  {
+    id: String(5),
+    name: "John",
+    contributions: 100,
+    loanStatus: "none"
+  } as Member
+])
+
     setFormData({ name: "", contributions: "", loanStatus: "None" });
     setShowModal(false);
   };
 
   const handleRequestLoan = () => {
-    const member = members.find((m) => m.id === parseInt(loanForm.memberId));
+     const member = members.find((m) => m.id === parseInt(loanForm.memberId));
     if (!member) return;
 
     const newLoan = {
@@ -97,7 +108,7 @@ export default function KilimoChamaPage() {
       status: "Pending",
     };
 
-    setLoanRequestsState((prev) => [...prev, newLoan]);
+     setLoanRequestsState((prev) => [...prev, newLoan]);
     setLoanForm({ memberId: "", amount: "" });
     setShowLoanModal(false);
   };
