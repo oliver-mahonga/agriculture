@@ -76,42 +76,42 @@ export default function KilimoChamaPage() {
     ],
   };
 
-//   const handleAddMember = () => {
-//     const newMember = {
-//       id: members.length + 1,
-//       name: formData.name,
-//       contributions: parseFloat(formData.contributions),
-//       loanStatus: formData.loanStatus,
-//     };
-//     setMembers(prev => [
-//   ...prev,
-//   {
-//     id: String(5),
-//     name: "John",
-//     contributions: 100,
-//     loanStatus: "none"
-//   } as Member
-// ])
+  const handleAddMember = () => {
+    const newMember = {
+      id: members.length + 1,
+      name: formData.name,
+      contributions: parseFloat(formData.contributions),
+      loanStatus: formData.loanStatus,
+    };
+    setMembers(prev => [
+  ...prev,
+  {
+    id: String(5),
+    name: "John",
+    contributions: 100,
+    loanStatus: "none"
+  } as Member
+])
 
-//     setFormData({ name: "", contributions: "", loanStatus: "None" });
-//     setShowModal(false);
-//   };
+    setFormData({ name: "", contributions: "", loanStatus: "None" });
+    setShowModal(false);
+  };
 
-//   const handleRequestLoan = () => {
-//      const member = members.find((m) => m.id === parseInt(loanForm.memberId));
-//     if (!member) return;
+  const handleRequestLoan = () => {
+     const member = members.find((m) => m.id === parseInt(loanForm.memberId));
+    if (!member) return;
 
-//     const newLoan = {
-//       id: loanRequestsState.length + 1,
-//       memberName: member.name,
-//       amount: parseFloat(loanForm.amount),
-//       status: "Pending",
-//     };
+    const newLoan = {
+      id: loanRequestsState.length + 1,
+      memberName: member.name,
+      amount: parseFloat(loanForm.amount),
+      status: "Pending",
+    };
 
-//      setLoanRequestsState((prev) => [...prev, newLoan]);
-//     setLoanForm({ memberId: "", amount: "" });
-//     setShowLoanModal(false);
-//   };
+     setLoanRequestsState((prev) => [...prev, newLoan]);
+    setLoanForm({ memberId: "", amount: "" });
+    setShowLoanModal(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -253,8 +253,8 @@ export default function KilimoChamaPage() {
               <option value="Approved">Approved</option>
             </select>
             <div className={styles.modalActions}>
-             {/* <button onClick={handleAddMember}>Add</button>
-              <button onClick={() => setShowModal(false)}>Cancel</button>*/}
+              <button onClick={handleAddMember}>Add</button>
+              <button onClick={() => setShowModal(false)}>Cancel</button>
             </div>
           </div>
         </div>
@@ -287,8 +287,8 @@ export default function KilimoChamaPage() {
               }
             />
             <div className={styles.modalActions}>
-             {/* <button onClick={handleRequestLoan}>Submit</button>
-              <button onClick={() => setShowLoanModal(false)}>Cancel</button>*/} 
+              <button onClick={handleRequestLoan}>Submit</button>
+              <button onClick={() => setShowLoanModal(false)}>Cancel</button>
             </div>
           </div>
         </div>
